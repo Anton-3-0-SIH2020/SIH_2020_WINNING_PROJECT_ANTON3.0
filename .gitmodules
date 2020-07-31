@@ -4,3 +4,6 @@
 [submodule "RESTAPI"]
 	path = RESTAPI
 	url = https://github.com/Sid200026/SIH2020-REST_API.git
+[submodule "ScheduledTask"]
+	path = ScheduledTask
+	url = https://github.com/Sid200026/SIH2020_Task_Scheduler.git
