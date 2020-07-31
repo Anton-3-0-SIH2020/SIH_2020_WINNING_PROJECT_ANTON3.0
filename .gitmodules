@@ -1,0 +1,6 @@
+[submodule "SchedulerAPI"]
+	path = SchedulerAPI
+	url = https://github.com/Sid200026/SIH2020-SchedulerAPI.git
+[submodule "RESTAPI"]
+	path = RESTAPI
+	url = https://github.com/Sid200026/SIH2020-REST_API.git
