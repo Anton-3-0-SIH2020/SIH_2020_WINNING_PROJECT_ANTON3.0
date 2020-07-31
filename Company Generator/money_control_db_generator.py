@@ -2,7 +2,6 @@ import requests
 import json
 import re
 from bs4 import BeautifulSoup as soup
-from datetime import datetime
 from configparser import ConfigParser
 import psycopg2
 
@@ -25,9 +24,9 @@ def money_control_get_company_names():
     res = requests.get('https://www.moneycontrol.com/india/stockpricequote/',
                        headers={'User-Agent': 'Mozilla/5.0'})
     res.raise_for_status()
-    page_soup = soup(res.content, features='lxml')
+    page_soup = soup(res.content)
     links = page_soup.find_all('a', {'class': 'bl_12'})
-    for link in links[1:2]:
+    for link in links[1:]:
         data.append({
             'name': link.string,
             'link': link['href'],
@@ -57,13 +56,14 @@ def money_control_get_company_bse(link):
 
 
 # Initializing the db
-connection = psycopg2.connect(
-    user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE,
-)
-cursor = connection.cursor()
-create_table = "CREATE TABLE IF NOT EXISTS companies (exchange text,code text,company text)"
-cursor.execute(create_table)
-connection.commit()
-money_control_get_company_names()
-cursor.close()
-connection.close()
+def mc_company_to_db():
+    connection = psycopg2.connect(
+        user=USER, password=PASSWORD, host=HOST, port=PORT, database=DATABASE,
+    )
+    cursor = connection.cursor()
+    create_table = "CREATE TABLE IF NOT EXISTS companies (exchange text,code text,company text)"
+    cursor.execute(create_table)
+    connection.commit()
+    money_control_get_company_names()
+    cursor.close()
+    connection.close()
