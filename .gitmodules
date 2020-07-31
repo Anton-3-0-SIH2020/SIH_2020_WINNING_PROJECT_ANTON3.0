@@ -4,3 +4,6 @@
 [submodule "RESTAPI"]
 	path = RESTAPI
 	url = https://github.com/Sid200026/SIH2020-REST_API.git
+[submodule "Company_DB_Generator"]
+	path = Company_DB_Generator
+	url = https://github.com/Sid200026/SIH2020_Company_DB_Generator.git
