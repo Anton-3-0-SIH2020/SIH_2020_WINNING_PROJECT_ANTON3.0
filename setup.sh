@@ -40,17 +40,17 @@ echo "AWS S3 Region"
 read REGION
 
 touch secret.ini
-echo "[POSTGRES] \n
-DATABASE=${DATABASE} \n
-USER=${USER} \n
-PASSWORD=${PASSWORD} \n
-HOST=${HOST} \n
-PORT=${PORT} \n
-[AWS] \n
-ACCESS_KEY=${ACCESS_KEY} \n
-SECRET_KEY=${SECRET_KEY} \n
-BUCKET=${BUCKET} \n
-REGION=${REGION} \n
+echo "[POSTGRES]\n
+DATABASE=${DATABASE}\n
+USER=${USER}\n
+PASSWORD=${PASSWORD}\n
+HOST=${HOST}\n
+PORT=${PORT}\n
+[AWS]\n
+ACCESS_KEY=${ACCESS_KEY}\n
+SECRET_KEY=${SECRET_KEY}\n
+BUCKET=${BUCKET}\n
+REGION=${REGION}\n
 " >secret.ini
 
 # Create a virtual environment
@@ -68,16 +68,16 @@ echo "Setup for REST API Completed\n"
 cd $SCHEDULERAPIDIR
 
 touch secret.ini
-echo "[POSTGRES] \n
-DATABASE=${DATABASE} \n
-USER=${USER} \n
-PASSWORD=${PASSWORD} \n
-HOST=${HOST} \n
-PORT=${PORT} \n
-[AWS] \n
-ACCESS_KEY=${ACCESS_KEY} \n
-SECRET_KEY=${SECRET_KEY} \n
-BUCKET=${BUCKET} \n
+echo "[POSTGRES]\n
+DATABASE=${DATABASE}\n
+USER=${USER}\n
+PASSWORD=${PASSWORD}\n
+HOST=${HOST}\n
+PORT=${PORT}\n
+[AWS]\n
+ACCESS_KEY=${ACCESS_KEY}\n
+SECRET_KEY=${SECRET_KEY}\n
+BUCKET=${BUCKET}\n
 " >secret.ini
 
 python3 -m venv env
@@ -102,7 +102,7 @@ cd $BSESCHEDULERDIR
 
 touch secret.ini
 echo "[API_KEY] \n
-key=${API_KEY} \
+key=${API_KEY}\
 " >secret.ini
 
 python3 -m venv env
@@ -121,7 +121,7 @@ cd $BSESCHEDULERDIR
 
 touch secret.ini
 echo "[API_KEY] \n
-key=${API_KEY} \
+key=${API_KEY}\
 " >secret.ini
 
 python3 -m venv env
@@ -140,7 +140,7 @@ cd $MCSCHEDULERDIR
 
 touch secret.ini
 echo "[API_KEY] \n
-key=${API_KEY} \
+key=${API_KEY}\
 " >secret.ini
 
 python3 -m venv env
