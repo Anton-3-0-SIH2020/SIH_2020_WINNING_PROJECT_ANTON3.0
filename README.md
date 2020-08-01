@@ -192,6 +192,8 @@ The server will be running on localhost:5000
 
 <a name="team" />
 
+### Our Team
+
 1. -[@BhavikaBajaj](https://github.com/BhavikaBajaj)
 2. -[@dxmxnlord](https://github.com/dxmxnlord)
 3. -[@Harshalshree](https://github.com/Harshalshree)
