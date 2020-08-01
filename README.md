@@ -128,6 +128,7 @@ foo@bar:~$ sh setup.sh
 foo@bar:~$ cd SchedulerAPI/
 foo@bar:~$ source env/bin/activate
 foo@bar:~$ python3 app.py
+foo@bar:~$ deactivate
 ```
 
 The TaskSchedulerAPI will run on localhost:8000. If you want the BASE_URL to be different then,
@@ -137,7 +138,7 @@ foo@bar:~$ export BASE_URL=<URL GOES HERE>
 foo@bar:~$ python3 app.py
 ```
 
-3. Open another terminal. ( Do not close the current one )
+3. Open another terminal. ( You may close this terminal however if you have any scheduled jobs setup, then those won't run.
 4. Starting the Scheduled Tasks ( Also build the database )
 
 ```sh
@@ -146,6 +147,7 @@ foo@bar:~$ cd ScheduledTask/
 foo@bar:~$ cd BSE/
 foo@bar:~$ source env/bin/activate
 foo@bar:~$ python3 app.py
+foo@bar:~$ deactivate
 ```
 
 ```sh
@@ -153,6 +155,7 @@ foo@bar:~$ cd ..
 foo@bar:~$ cd NSE/
 foo@bar:~$ source env/bin/activate
 foo@bar:~$ python3 app.py
+foo@bar:~$ deactivate
 ```
 
 ```sh
@@ -160,6 +163,7 @@ foo@bar:~$ cd ..
 foo@bar:~$ cd MoneyControl/
 foo@bar:~$ source env/bin/activate
 foo@bar:~$ python3 app.py
+foo@bar:~$ deactivate
 ```
 
 5. Start the REST API server
