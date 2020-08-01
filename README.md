@@ -102,6 +102,19 @@ Architecture for Data Source
 
 ### Installation
 
+1. Clone this repository
+```sh
+foo@bar:~$ git clone https://github.com/Anton-3-0-SIH2020/SIH2020_SM445_Team_Anton_3.0.git
+```
+2. Change directory to that folder
+```sh
+foo@bar:~$ cd SIH2020_SM445_Team_Anton_3.0/
+```
+3. Run the setup file
+```sh
+foo@bar:~$ sh setup.sh
+```
+
 ---
 
 <a name="smpout" />

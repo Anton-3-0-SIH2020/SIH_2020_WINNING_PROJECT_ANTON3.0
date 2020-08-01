@@ -7,3 +7,9 @@
 [submodule "ScheduledTask"]
 	path = ScheduledTask
 	url = https://github.com/Anton-3-0-SIH2020/SIH2020_Task_Scheduler.git
+[submodule "SIH2020_SM445_Team_Anton3.0_NLP-NER"]
+	path = SIH2020_SM445_Team_Anton3.0_NLP-NER
+	url = https://github.com/Anton-3-0-SIH2020/SIH2020_SM445_Team_Anton3.0_NLP-NER.git
+[submodule "SIH2020_SM445_Team_Anto.3.0_MobileApp"]
+	path = SIH2020_SM445_Team_Anto.3.0_MobileApp
+	url = https://github.com/Anton-3-0-SIH2020/SIH2020_SM445_Team_Anto.3.0_MobileApp.git
