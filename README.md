@@ -28,7 +28,7 @@
 
 <a name="introduction" />
 
-### Introduction]
+### Introduction
 
 A corporate action is an event initiated by a public company that will bring an actual change to the securities—equity or debt—issued by the company. Corporate actions are typically agreed upon by a company's board of directors and authorized by the shareholders. Examples of corporate actions include stock splits, dividends, mergers and acquisitions, rights issues, and spin-offs. Corporate action instantly impacts security valuation and hence its timely and accurate information is very critical to financial institutes and investors. Information on current, upcoming, and historical corporate action can be purchased from various data vendors like Bloomberg, ICE Data Service, Refinitiv, MarketMap, etc. which could be expensive. Alternatively, data could be freely retrieved from public webpages and company portal. Challenge with free data approach is its accuracy, reliability and completeness
 
@@ -241,7 +241,7 @@ The above two steps will be scheduled to run every 'n' hours to update the datab
 
 <a name="aws">
 
-#### AWS
+#### [ AWS](https://aws.amazon.com/)
 
 * Automated Multi-Region Backups
 * Consistency & Reliability
