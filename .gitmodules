@@ -16,3 +16,6 @@
 [submodule "Intelligent-Crawler"]
 	path = Intelligent-Crawler
 	url = https://github.com/Anton-3-0-SIH2020/SIH2020_Intelligent_Crawler.git
+[submodule "Subscription-Service"]
+	path = Subscription-Service
+	url = https://github.com/Anton-3-0-SIH2020/SIH2020_Subscription_Service.git
