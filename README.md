@@ -262,7 +262,29 @@ The above two steps will be scheduled to run every 'n' hours to update the datab
 
 ### User Interface
 
-Coming Soon!!
+**Landing Page**
+
+![Landing Page](./docs/Landing&#32;Screen.jpeg)
+
+**Login Page**
+
+![Login Page](./docs/Login&#32;Screen.jpeg)
+
+**Dashboard**
+
+![Dashboard Page](./docs/Dashboard.jpeg)
+
+**Favourites**
+
+![Favourites Page](./docs/Favourites.jpeg)
+
+**Detail View of CA**
+
+![Detail View of CA Page](./docs/Detail&#32;View&#32;of&#32;CA.jpeg)
+
+**Filtering on basis of security**
+
+![Filtering through Security Page](./docs/Generic&#32;Company&#32;Search.jpeg)
 
 ---
 
