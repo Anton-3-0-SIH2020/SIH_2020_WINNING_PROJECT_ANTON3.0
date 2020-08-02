@@ -232,6 +232,13 @@ The above two steps will be scheduled to run every 'n' hours to update the datab
 * spaCy excels at large-scale information extraction tasks.
 * spaCy is the best way to prepare text for deep learning.
 
+<a name="flask">
+
+#### [ Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+* Used for developing highly scalable microservices
+* It is based on Python and allows ease of integration with ML and NLP applications
+
 <a name="pgsql">
 
 #### [ PostgreSQL](https://www.postgresql.org/)
