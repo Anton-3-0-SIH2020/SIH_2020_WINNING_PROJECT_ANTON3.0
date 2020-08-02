@@ -13,3 +13,6 @@
 [submodule "SIH2020_SM445_Team_Anto.3.0_MobileApp"]
 	path = SIH2020_SM445_Team_Anto.3.0_MobileApp
 	url = https://github.com/Anton-3-0-SIH2020/SIH2020_SM445_Team_Anto.3.0_MobileApp.git
+[submodule "CAScraper"]
+	path = CAScraper
+	url = https://github.com/Anton-3-0-SIH2020/SIH2020_Intelligent_Crawler.git
