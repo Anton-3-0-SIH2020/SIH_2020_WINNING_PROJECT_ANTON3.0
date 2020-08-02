@@ -9,18 +9,18 @@
 ### Table of Contents
 
 - [ Introduction ](#introduction)
+- [ Prerequisites](#prereq)
+- [ Installation](#installation)
 - [ Our Solution ](#solution)
   - [ Overview](#overview)
   - [ Features](#features)
   - [ Architecture](#architecture)
 - [ Technology Stack](#techstack)
   - [ Flutter](#flutter)
-  - [ NodeJS and EJS](#node)
-  - [ Spacy](#spacy)
+  - [ spaCy](#spacy)
   - [ Flask](#flask)
   - [ PostgreSQL](#pgsql)
   - [ AWS](#aws)
-- [ Installation](#installation)
 - [ User Interface](#smpout)
 - [ Our Team](#team)
 
@@ -36,65 +36,45 @@ A corporate action is an event initiated by a public company that will bring an 
 
 ---
 
-<a name="solution" />
+<a name="prereq" />
 
-### Our Solution
+### Prerequisites
 
-<a name="overview">
+1. [ AWS S3 Instance](https://aws.amazon.com/s3/)
 
-#### Overview
+This instance will be used to store the pdf and csv files. Create a bucket named ```smart-india-hackathon```. You'll need to have an access key, secret key, region and bucket name.
 
-<a name="features">
+2. [ Postgres Server](https://aws.amazon.com/rds/)
 
-#### Features
+You need to have one postgres server running with a database ```sih``` created. Also note the **username**, **password**, **host** and **port**
 
-- [x] Capability of crawling public web pages to retrieve information related to historical, current, and future expected corporate action
-- [x] Data can be viewed on a mobile platform or a web platform
-- [x] Download the data as pdf or csv
-- [x] Ability of process information available in free text format like pdf, and MS word document
-- [x] Intelligently identify context in which data is available, like is it listed as example, or is it a real announced corporate action. We should also be able to classify CA as approved or yet to be approved corporate action.
-- [x] Extract important information from retrieved pages/files on corporate action
-- [x] Build accurate, and complete data from conflicting data retrieved from multiple sources. It can continuously learn about sources which could be trusted for specific information
-- [x] Ability to configure to look for CA on a set of securities, to all listed securities on specific exchange.
-- [x] Robot could be configured to continuously look for new data available for relevant corporate action.
+3. [ Python 3.6+](https://www.python.org/downloads/)
 
-<a name="architecture">
+The code base uses features only available from python 3.6
 
-#### Architecture
+4. [ wkhtmltopdf](https://wkhtmltopdf.org/downloads.html)
 
-Overview of our architecture
+This repository uses wkhtmltopdf library to convert html file to pdf.
 
-![Overall Architecture](./docs/Overall_Architecture.png)
+5. [ Flutter](https://flutter.dev/docs/get-started/install)
 
-Architecture for Data Source
+Flutter is used to develop the Android and IOS platforms.
 
-![Data Source](./docs/Data_Source.png)
+6. [ Google Custom Search API](https://developers.google.com/custom-search/v1/overview)
 
----
+This application uses Google's Custom Search API to decide from which websites it needs to get extract information regarding corporate actions.
 
-<a name="techstack" />
+7. [ Firebase](https://firebase.google.com/)
 
-### Technology Stack
+Used for storing data regarding the user and also for authentication of users
 
-<a name="flutter">
+8. [ Xcode(Only for MacOS)](https://developer.apple.com/xcode/resources/) [This is optional. Install this if you want to run the Flutter app]
 
-#### Flutter
+Xcode can be used for building the Flutter app for IOS and also run it on an emulator.
 
-<a name="node">
+9. [ Android Studio(For any OS)](https://developer.android.com/studio) [This is optional. Install this if you want to run the Flutter app]
 
-#### NodeJS and EJS
-
-<a name="spacy">
-
-#### Spacy
-
-<a name="pgsql">
-
-#### PostgreSQL
-
-<a name="aws">
-
-#### AWS
+Android Studio can also be used for building the Flutter app for android and also run it on an emulator.
 
 ---
 
@@ -174,19 +154,137 @@ foo@bar:~$ cd ../
 foo@bar:~$ cd RESTAPI/
 foo@bar:~$ source env/bin/activate
 foo@bar:~$ python3 app.py
+foo@bar:~$ cd ..
+foo@bar:~$ cd ..
 ```
 
 The server will be running on localhost:5000
 
-#### Starting the Web App
-
 #### Starting the Mobile App
+
+```sh
+foo@bar:~$ cd SIH2020_SM445_Team_Anto.3.0_MobileApp/
+foo@bar:~$ flutter packages get
+foo@bar:~$ flutter package upgrade
+foo@bar:~$ flutter run
+```
+
+---
+
+<a name="solution" />
+
+### Our Solution
+
+<a name="overview">
+
+#### Overview
+
+We provide an intelligent crawler which can extract information related to corporate actions from any webpage. The crawler is designed to be able to extract information without requiring any knowledge of the DOM elements. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
+
+Then the extracted information is passed through a NLP model to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a NER model to extract information from it and store it in the database.
+
+The above two steps will be scheduled to run every 'n' hours to update the database and get the latest information.
+
+<a name="features">
+
+#### Features
+
+- [x] Capability to crawl **any** webpage and gather the requisite information regarding corporate actions.
+- [x] Data can be viewed on a mobile platform
+- [x] Download the data as pdf or csv
+- [x] Extract important information from retrieved pages/files on corporate action
+- [x] Build accurate, and complete data from conflicting data retrieved from multiple sources.
+- [x] Ability to configure to look for CA on a set of securities, to all listed securities on specific exchange.
+- [x] Robot could be configured to continuously look for new data available for relevant corporate action.
+- [x] Add certain set of securities as favourites
+
+<a name="architecture">
+
+#### Architecture
+
+**Overview of our architecture**
+
+![Overall Architecture](./docs/Overall_Architecture.png)
+
+**Architecture for Data Source**
+
+![Data Source](./docs/Data_Source.png)
+
+---
+
+<a name="techstack" />
+
+### Technology Stack
+
+<a name="flutter">
+
+#### [ Flutter](https://flutter.dev/)
+
+* Flutter overcomes the traditional limitations of cross-platform approaches.
+* Frontend & Backend with a single code
+* Flutter moves to a widget, rendering, animation and gestures into this framework to give you to complete control over every pixel on the screen. It means you have the flexibility to build a custom design.
+
+<a name="spacy">
+
+#### [ spaCy](https://spacy.io/)
+
+* spaCy is an industrial grade natural language processing toolkit.
+* spaCy excels at large-scale information extraction tasks.
+* spaCy is the best way to prepare text for deep learning.
+
+<a name="flask">
+
+#### [ Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+* Used for developing highly scalable microservices
+* It is based on Python and allows ease of integration with ML and NLP applications
+
+<a name="pgsql">
+
+#### [ PostgreSQL](https://www.postgresql.org/)
+
+* Concurrency, Performance, Reliability and Disaster Recovery
+* Highly scalable for structured data
+
+<a name="aws">
+
+#### [ AWS](https://aws.amazon.com/)
+
+* Automated Multi-Region Backups
+* Consistency & Reliability
+* Simple Automated Scheduling
+* Security and Scaling
+* AWS CloudWatch, AWS S3, AWS Lambda, AWS RDS
 
 ---
 
 <a name="smpout" />
 
 ### User Interface
+
+**Landing Page**
+
+![Landing Page](./docs/Landing&#32;Screen.jpeg)
+
+**Login Page**
+
+![Login Page](./docs/Login&#32;Screen.jpeg)
+
+**Dashboard**
+
+![Dashboard Page](./docs/Dashboard.jpeg)
+
+**Favourites**
+
+![Favourites Page](./docs/Favourites.jpeg)
+
+**Detail View of CA**
+
+![Detail View of CA Page](./docs/Detail&#32;View&#32;of&#32;CA.jpeg)
+
+**Filtering on basis of security**
+
+![Filtering through Security Page](./docs/Generic&#32;Company&#32;Search.jpeg)
 
 ---
 
