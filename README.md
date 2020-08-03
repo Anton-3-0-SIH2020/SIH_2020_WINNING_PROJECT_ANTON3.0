@@ -409,11 +409,24 @@ The complete flow of the pipeline is mentioned below:
 
 <img src="./docs/db_4.jpeg" height=250>
 
+
+**Final Structured Output**
+
 ![Structured Data](./docs/structured_data.jpeg)
+
+
+**Storing structured data**
+
 ![1 Page](./docs/db_1.jpeg)
-![2 Page](./docs/db_2.jpeg)
-![3 Page](./docs/db_3.jpeg)
+
+
+**Storing Unstructured data**
+
+
 ![4 Page](./docs/db_4.jpeg)
+
+
+
 ![5 Page](./docs/db_5.jpeg)
 ![5 Page](./docs/db_5.jpeg)
 ![Approve Pending](./docs/approve_disapprove.jpeg)
