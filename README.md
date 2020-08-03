@@ -210,37 +210,7 @@ The extracted imformation may be unstructured (News, Free form text):
 For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
 As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
 
-The complete flow of the pipeline is mentioned below:
-
-**Pipeline Layer 1**
-
-**Clacify the text into ca/non-ca:**
-
-
-<img src="./docs/ca_non_ca_classifier.jpeg" height=300>
-
-**Accuracy of the clacifier:**
-
-
-<img src="./docs/ca_non_ca_classifier_accuracy.jpeg" height=300>
-
-**Extract basic informations from text(Company, Date):**
-
-
-<img src="./docs/NER_model_for_basic_feature_extraction.jpeg" height=300>
-
-**Extract advanced information from the text(Ca Type,Purpose):**
-
-<img src="./docs/Advanced_feature_extraction.jpeg" height=300>
-
-
-**Store the data in the database is a structured format:**
-
-
-<img src="./docs/db_4.jpeg" height=250>
-
-
-The above two steps will be **scheduled to run every 'n' hours** to update the database and get the latest information.
+The above steps will be **scheduled to run every 'n' hours** to update the database and get the latest information.
 
 <a name="features">
 
@@ -324,7 +294,7 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 
 ---
 
-<a name="host"
+<a name="host">
 
 ### Hosting
 
@@ -373,7 +343,7 @@ The entire project is hosted on AWS. Currently we use the following AWS Services
 
 ### Data Source for Corporate Actions
 
-Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API. We have configured the API to return responses from the following sites only
+Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API.
 
 ![API Search](./docs/API.png)
 
@@ -389,6 +359,55 @@ Currently the crawler can parse
 Data Collection is scheduled to run every 'n' hours which is totally customizable via AWS Cloudwatch.
 
 ---
+
+
+### Data Extraction
+
+We provide an **intelligent crawler** which can extract information related to corporate actions from **every webpage**. The crawler is designed to be able to extract information **without requiring any knowledge of the DOM elements**. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
+
+The extracted information may be in a structured format (Table, PDF, Word):
+
+
+<img src="./docs/db_1.jpeg" height=300>
+
+
+
+The extracted imformation may be unstructured (News, Free form text):
+
+
+<img src="./docs/news.jpeg" width=500>
+
+For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
+As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
+
+The complete flow of the pipeline is mentioned below:
+
+**Pipeline Layer 1**
+
+**Clacify the text into ca/non-ca:**
+
+
+<img src="./docs/ca_non_ca_classifier.jpeg" height=300>
+
+**Accuracy of the clacifier:**
+
+
+<img src="./docs/ca_non_ca_classifier_accuracy.jpeg" height=300>
+
+**Extract basic informations from text(Company, Date):**
+
+
+<img src="./docs/NER_model_for_basic_feature_extraction.jpeg" height=300>
+
+**Extract advanced information from the text(Ca Type,Purpose):**
+
+<img src="./docs/Advanced_feature_extraction.jpeg" height=300>
+
+
+**Store the data in the database is a structured format:**
+
+
+<img src="./docs/db_4.jpeg" height=250>
 
 ![Structured Data](./docs/structured_data.jpeg)
 ![1 Page](./docs/db_1.jpeg)
