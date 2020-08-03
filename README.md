@@ -447,6 +447,9 @@ Inorder to resolve conflict between several entries, we design a **key (Company 
 ![5 Page](./docs/db_5.jpeg)
 
 
+---
+
+
 ### Corporate Action Scope:
 
 **1. CA Type Supported :**
@@ -480,6 +483,8 @@ This part is entirely customizable and one can add as many number of websites th
 All the historic data for the Indian exchanges (BSE/NSE) have been stored for later use. Current data is being populated from the publically available information in the form on news and tabular data.
 
 
+---
+
 
 ### Quality of data:
  **1. Verifying data**
@@ -492,6 +497,8 @@ Inorder to resolve conflict between several entries, we design a **key (Company 
 
 ![5 Page](./docs/db_5.jpeg)
 
+
+---
 
 ### Usability:
 
@@ -522,3 +529,7 @@ User can select (**Favourate**) companies which they want to keep a track of and
 ### Unique Features/ Wow Factor:
 
 Data is being fetched from **all possible locations** and being merged and checked for conflict to generate a standard singular source of data. The intelligence of the web crawler provides for a **scalable solution** to extract information from any website in **any format**. The crawler intellegently identifies the websites that can provide the best information and uses those website to gather data. With the help of **NLP/NER and machine learning algorithms** , free text data can also be processed to gather information from it.
+
+
+
+---
