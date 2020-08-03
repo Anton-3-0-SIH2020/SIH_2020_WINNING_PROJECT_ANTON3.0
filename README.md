@@ -514,9 +514,12 @@ Web application developed to be accessed anywhere
 
 User can subscribe to daily mail of the corporate actions in the form of PDF/CSV
 
+<img src="./docs/email.png" width=300>
+
+
 **4. User Customisations:**
 
-User can select (**Favourate**) companies which they want to keep a track of and the information can be viewed and edited anytime.
+User can select (**Favourite**) companies which they want to keep a track of and the information can be viewed and edited anytime.
 
 
 **5. Technoogies And Tools:**
