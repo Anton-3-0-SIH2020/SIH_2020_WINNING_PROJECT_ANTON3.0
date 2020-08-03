@@ -472,7 +472,7 @@ Inorder to resolve conflict between several entries, we design a **key (Company 
 **2. Financial Market Supported :**
 
 
-Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API.
+We do not have any specific target website to extract information from. Our crawler can extract information from any website in the world. Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API.
 
 ![API Search](./docs/API.png)
 
