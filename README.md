@@ -245,7 +245,7 @@ The above steps will be **scheduled to run every 'n' hours** to update the datab
 **NLP Pipeline**
 
 
-<img src="./docs/NLP_Pipeline.png" height=300>
+<img src="./docs/NLP_Pipeline.png" height=600>
 
 ---
 
