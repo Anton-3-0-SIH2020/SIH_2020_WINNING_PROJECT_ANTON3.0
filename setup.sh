@@ -6,6 +6,8 @@ SCHEDULERAPIDIR="${CURRENT_DIR}/SchedulerAPI/"
 BSESCHEDULERDIR="${CURRENT_DIR}/ScheduledTask/BSE/"
 NSESCHEDULERDIR="${CURRENT_DIR}/ScheduledTask/NSE/"
 MCSCHEDULERDIR="${CURRENT_DIR}/ScheduledTask/MoneyControl/"
+CRAWLERDIR="${CURRENT_DIR}/Intelligent-Crawler/"
+SUBSCRIPTION_SERVICE_DIR="${CURRENT_DIR}/Subscription-Service/"
 
 echo "Executing from ${CURRENT_DIR}"
 echo "RESTAPI to be installed from ${RESTAPIDIR}"
@@ -154,5 +156,61 @@ echo "Setup for Task Scheduler Money Control Completed"
 echo "\n"
 
 echo "Setup for Task Scheduler Complete"
+
+echo "Please provide the Google Custom Search API configurations\n"
+echo "API Key"
+read API_KEY_GOOGLE
+echo "CX"
+read CX
+
+echo "\n"
+
+cd $CRAWLERDIR
+
+touch secret.ini
+echo "[GOOGLE] \n
+developerKey=${API_KEY_GOOGLE}\
+cx=${CX}
+" >secret.ini
+
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
+
+echo "\n\n"
+
+echo "Setup for Intelligent Crawler Completed"
+
+echo "\n"
+
+cd $SUBSCRIPTION_SERVICE_DIR
+
+echo "Please provide the Amazon SES Configuration\n"
+echo "SENDER"
+read SENDER
+
+touch secret.ini
+echo "[POSTGRES]\n
+DATABASE=${DATABASE}\n
+USER=${USER}\n
+PASSWORD=${PASSWORD}\n
+HOST=${HOST}\n
+PORT=${PORT}\n
+[AWS]\n
+ACCESS_KEY=${ACCESS_KEY}\n
+SECRET_KEY=${SECRET_KEY}\n
+BUCKET=${BUCKET}\n
+REGION=${REGION}\n
+" >secret.ini
+
+python3 -m venv env
+source env/bin/activate
+pip3 install -r requirements.txt
+
+echo "\n\n"
+
+echo "Setup for Subscription Service Completed"
+
+echo "\n"
 
 echo "Repo build successfully\n"
