@@ -394,10 +394,23 @@ The complete flow of the pipeline is mentioned below:
 
 <img src="./docs/ca_non_ca_classifier_accuracy.jpeg" height=300>
 
+
+**Pipeline Layer 2**
+
 **Extract basic informations from text(Company, Date):**
 
 
 <img src="./docs/NER_model_for_basic_feature_extraction.jpeg" height=300>
+
+**Pipeline Layer 3**
+
+**Classifying the ca as approved or pending** 
+
+![Approve Pending](./docs/approve_disapprove.jpeg)
+
+
+**Pipeline Layer 4**
+
 
 **Extract advanced information from the text(Ca Type,Purpose):**
 
@@ -426,8 +439,10 @@ The complete flow of the pipeline is mentioned below:
 ![4 Page](./docs/db_4.jpeg)
 
 
+**Resolving Conflicting data**
+
+Inorder to resolve conflict between several entries, we design a **key (Company + Data + Ca Type + Purpose)**. This key is uniques for each entry and cannot be replicated. This helps us with resolving the conflict between data entries.
 
 ![5 Page](./docs/db_5.jpeg)
-![5 Page](./docs/db_5.jpeg)
-![Approve Pending](./docs/approve_disapprove.jpeg)
+
 
