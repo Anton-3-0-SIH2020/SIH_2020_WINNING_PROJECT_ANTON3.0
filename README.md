@@ -34,7 +34,9 @@
   - [ Flask](#flask)
   - [ PostgreSQL](#pgsql)
   - [ AWS](#aws)
+- [ Hosting](#host)
 - [ User Interface](#smpout)
+- [ Data source for corporate actions](#dsca)
 
 ---
 
@@ -194,16 +196,15 @@ foo@bar:~$ flutter run
 We provide an **intelligent crawler** which can extract information related to corporate actions from **every webpage**. The crawler is designed to be able to extract information **without requiring any knowledge of the DOM elements**. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
 
 The extracted information may be in a structured format (Table, PDF, Word):
-**ADD IMAGE**
+![ DB Structured](./docs/db_1.jpeg)
 
 The extracted imformation may be unstructured (News, Free form text):
-**ADD IMAGE**
+![ News](./docs/news.jpeg)
 
 For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
 As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
 
-**ADD IMAGE**
-
+![ DB Unstructured](./docs/db_4.jpeg)
 The above two steps will be **scheduled to run every 'n' hours** to update the database and get the latest information.
 
 <a name="features">
@@ -228,9 +229,17 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 
 ![Overall Architecture](./docs/Overall_Architecture.png)
 
-**Architecture for Data Source**
+**Architecture for Data Source ( 1 )**
+
+![Structured Data Source](./docs/Structured_News.jpeg)
+
+**Architecture for Data Source ( 2 )**
 
 ![Data Source](./docs/Data_Source.png)
+
+**NLP Pipeline**
+
+![NLP Pipeline](./docs/NLP_Pipeline.png)
 
 ---
 
@@ -280,6 +289,21 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 
 ---
 
+<a name="host"
+
+### Hosting
+
+The entire project is hosted on AWS. Currently we use the following AWS Services
+
+* **AWS EC2** Instance for hosting the two flask applications. One EC2 instance has its HTTP and HTTPS Port open whereas the the other EC2 instance is hidden from the world and can only be communicated over an VPC and a private API Key
+* **AWS RDS** is used for hosting the PostgreSQL Server
+* **AWS Lambda** which communicates with the EC2 instance over a VPC to refresh the database
+* **AWS Cloudwatch** is used for scheduling the AWS Lambda function calls
+* **AWS VPC** for secured cloud communication
+* **AWS SES** for email sending
+
+---
+
 <a name="smpout" />
 
 ### User Interface
@@ -310,6 +334,27 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 
 ---
 
+<a name="dsca" />
+
+### Data Source for Corporate Actions
+
+Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API. We have configured the API to return responses from the following sites only
+
+![API Search](./docs/API.png)
+
+This part is entirely customizable and one can add as many number of websites they want. Once the data source is given to our intelligent crawler, it will go and scrape that website for any corporate actions information. The crawler has been designed as a DOM independent platform ie. it can be used to scrape any website and return a list of corporate action information it extracted. We used Google's Search Index to decide which sites to scrape as it may contain information pertaining to corporate actions for a company.
+
+Currently the crawler can parse
+* Free Text ( without external intervention )
+* Tabular Data ( without external intervention )
+* Excel ( requires external intervention )
+* PDF ( requires external intervention and only in text format )
+* API ( requires external intervention )
+
+Data Collection is scheduled to run every 'n' hours which is totally customizable via AWS Cloudwatch.
+
+---
+
 ![News](./docs/news.jpeg)
 ![CA Non-CA Classifier](./docs/ca_non_ca_classifier.jpeg)
 ![Classifier Accuracy](./docs/ca_non_ca_classifier_accuracy.jpeg)
@@ -321,4 +366,6 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 ![3 Page](./docs/db_3.jpeg)
 ![4 Page](./docs/db_4.jpeg)
 ![5 Page](./docs/db_5.jpeg)
+![5 Page](./docs/db_5.jpeg)
+![Approve Pending](./docs/approve_disapprove.jpeg)
 
