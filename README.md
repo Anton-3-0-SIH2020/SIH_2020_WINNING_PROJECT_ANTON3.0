@@ -210,7 +210,36 @@ The extracted imformation may be unstructured (News, Free form text):
 For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
 As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
 
-![ DB Unstructured](./docs/db_4.jpeg)
+The complete flow of the pipeline is mentioned below:
+
+**Pipeline Layer 1**
+
+**Clacify the text into ca/non-ca:**
+
+
+<img src="./docs/ca_non_ca_classifier.jpeg" height=300>
+
+**Accuracy of the clacifier:**
+
+
+<img src="./docs/ca_non_ca_classifier_accuracy.jpeg" height=300>
+
+**Extract basic informations from text(Company, Date):**
+
+
+<img src="./docs/NER_model_for_basic_feature_extraction.jpeg" height=300>
+
+**Extract advanced information from the text(Ca Type,Purpose):**
+
+<img src="./docs/Advanced_feature_extraction.jpeg" height=300>
+
+
+**Store the data in the database is a structured format:**
+
+
+<img src="./docs/db_4.jpeg" height=250>
+
+
 The above two steps will be **scheduled to run every 'n' hours** to update the database and get the latest information.
 
 <a name="features">
@@ -361,11 +390,6 @@ Data Collection is scheduled to run every 'n' hours which is totally customizabl
 
 ---
 
-![News](./docs/news.jpeg)
-![CA Non-CA Classifier](./docs/ca_non_ca_classifier.jpeg)
-![Classifier Accuracy](./docs/ca_non_ca_classifier_accuracy.jpeg)
-![2nd Pipeline Layer](./docs/NER_model_for_basic_feature_extraction.jpeg)
-![3rd Pipeline Lyaer](./docs/Advanced_feature_extraction.jpeg)
 ![Structured Data](./docs/structured_data.jpeg)
 ![1 Page](./docs/db_1.jpeg)
 ![2 Page](./docs/db_2.jpeg)
