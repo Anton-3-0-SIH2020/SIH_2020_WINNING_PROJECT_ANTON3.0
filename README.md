@@ -446,3 +446,78 @@ Inorder to resolve conflict between several entries, we design a **key (Company 
 ![5 Page](./docs/db_5.jpeg)
 
 
+### Corporate Action Scope:
+
+**1. CA Type Supported :**
+- Splits
+
+- Dividend
+
+- AGM
+
+- Extraordinarie GM
+
+- Rights
+
+- Issues
+
+**These CA Types are completly scalable, so adding new securities is possible**
+
+
+
+**2. Financial Market Supported :**
+
+
+Currently we use **Google's Custom Search API** to search for corporate action of each company and then scrape all the websites as returned by the API.
+
+![API Search](./docs/API.png)
+
+This part is entirely customizable and one can add as many number of websites they want. Once the data source is given to our intelligent crawler, it will go and scrape that website for any corporate actions information. The crawler has been designed as a DOM independent platform ie. it can be used to scrape any website and return a list of corporate action information it extracted. We used Google's Search Index to decide which sites to scrape as it may contain information pertaining to corporate actions for a company.
+
+**3. Historic /Current Data :**
+
+All the historic data for the Indian exchanges (BSE/NSE) have been stored for later use. Current data is being populated from the publically available information in the form on news and tabular data.
+
+
+
+### Quality of data:
+ **1. Verifying data**
+ 
+ All the data that is being retreived from different sources are checked with the data available from BSE/NSE to determine its reliability. If a data has not been verefied, it is listed as predicted, after it has been verefied it is added to the official table.
+ 
+ **2. Conflicting Informations**
+
+Inorder to resolve conflict between several entries, we design a **key (Company + Data + Ca Type + Purpose)**. This key is uniques for each entry and cannot be replicated. This helps us with resolving the conflict between data entries.
+
+![5 Page](./docs/db_5.jpeg)
+
+
+### Usability:
+
+**1. Mobile Interfacing:**
+
+Mobile application for both **Android** and **iOS**
+
+**2. Web App:**
+
+Web application developed to be accessed anywhere
+
+**3. Email Subscription Service:**
+
+User can subscribe to daily mail of the corporate actions in the form of PDF/CSV
+
+**4. User Customisations:**
+
+User can select (**Favourate**) companies which they want to keep a track of and the information can be viewed and edited anytime.
+
+
+**5. Technoogies And Tools:**
+
+-Flutter for mobile
+-EJS for web
+-Flask and AWS for email service and data management
+
+
+### Unique Features/ Wow Factor:
+
+Data is being fetched from **all possible locations** and being merged and checked for conflict to generate a standard singular source of data. The intelligence of the web crawler provides for a **scalable solution** to extract information from any website in **any format**. The crawler intellegently identifies the websites that can provide the best information and uses those website to gather data. With the help of **NLP/NER and machine learning algorithms** , free text data can also be processed to gather information from it.
