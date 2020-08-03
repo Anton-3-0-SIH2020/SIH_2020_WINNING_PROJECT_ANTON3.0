@@ -169,7 +169,7 @@ cd $CRAWLERDIR
 
 touch secret.ini
 echo "[GOOGLE] \n
-developerKey=${API_KEY_GOOGLE}\
+developerKey=${API_KEY_GOOGLE}\n
 cx=${CX}
 " >secret.ini
 
