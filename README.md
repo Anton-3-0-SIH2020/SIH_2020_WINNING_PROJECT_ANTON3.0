@@ -4,6 +4,19 @@
 
 **Team : Anton3.0**
 
+**Participants**
+1. Pratik Baid | Vellore Institute of Technology, Chennai | pratikbaid3@gmail.com
+2. Rishikesh Sriram | Vellore Institute of Technology, Chennai | rishikesh.sriram06@gmail.com
+3. Siddharth Singha Roy | Vellore Institute of Technology, Chennai | siddharthsingha.roy2018@vitstudent.ac.in
+4. Bhavika Bajaj | Vellore Institute of Technology, Chennai | bhavikabenigopal.2018@vitstuent.ac.in
+5. Yash Jain | Vellore Institute of Technology, Chennai | yashjain.2018@vitstudent.ac.in
+6. Harshal Shree | Vellore Institute of Technology, Chennai | harshal.shree2018@vitstudent.ac.in
+
+
+**Mentor**
+
+1. Syed Ibrahim Peer Mohamed | Vellore Institute of Technology, Chennai
+
 ---
 
 ### Table of Contents
@@ -179,24 +192,34 @@ foo@bar:~$ flutter run
 
 #### Overview
 
-We provide an intelligent crawler which can extract information related to corporate actions from any webpage. The crawler is designed to be able to extract information without requiring any knowledge of the DOM elements. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
+We provide an **intelligent crawler** which can extract information related to corporate actions from **every webpage**. The crawler is designed to be able to extract information **without requiring any knowledge of the DOM elements**. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
 
-Then the extracted information is passed through a NLP model to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a NER model to extract information from it and store it in the database.
+The extracted information may be in a structured format (Table, PDF, Word):
+**ADD IMAGE**
 
-The above two steps will be scheduled to run every 'n' hours to update the database and get the latest information.
+The extracted imformation may be unstructured (News, Free form text):
+**ADD IMAGE**
+
+For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
+As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
+
+**ADD IMAGE**
+
+The above two steps will be **scheduled to run every 'n' hours** to update the database and get the latest information.
 
 <a name="features">
 
 #### Features
 
-- [x] Capability to crawl **any** webpage and gather the requisite information regarding corporate actions.
-- [x] Data can be viewed on a mobile platform
-- [x] Download the data as pdf or csv
-- [x] Extract important information from retrieved pages/files on corporate action
-- [x] Build accurate, and complete data from conflicting data retrieved from multiple sources.
-- [x] Ability to configure to look for CA on a set of securities, to all listed securities on specific exchange.
-- [x] Robot could be configured to continuously look for new data available for relevant corporate action.
-- [x] Add certain set of securities as favourites
+- [x] Capability to crawl **all webpage's** and gather the requisite information regarding corporate actions.
+- [x] **Intelegently identify which websites** provide information related to the required corporate action.
+- [x] Data can be viewed on a **mobile platform**
+- [x] Download the data as **pdf or csv**
+- [x] **Extract important information** from retrieved pages/files on corporate action
+- [x] **Build accurate, and complete data** from conflicting data retrieved from multiple sources.
+- [x] Ability to configure to **look for CA on a set of securities, to all listed securities on specific exchange**.
+- [x] Robot could be configured to **continuously look for new data** available for relevant corporate action.
+- [x] Add certain set of securities as **favourites**
 
 <a name="architecture">
 
