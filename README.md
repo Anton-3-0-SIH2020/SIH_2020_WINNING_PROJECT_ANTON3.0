@@ -35,7 +35,6 @@
   - [ PostgreSQL](#pgsql)
   - [ AWS](#aws)
 - [ User Interface](#smpout)
-- [ Our Team](#team)
 
 ---
 
@@ -308,20 +307,3 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 **Filtering on basis of security**
 
 ![Filtering through Security Page](./docs/Generic&#32;Company&#32;Search.jpeg)
-
----
-
-<a name="team" />
-
-### Our Team
-
-1. -[@BhavikaBajaj](https://github.com/BhavikaBajaj)
-2. -[@dxmxnlord](https://github.com/dxmxnlord)
-3. -[@Harshalshree](https://github.com/Harshalshree)
-4. -[@pratikbaid3](https://github.com/pratikbaid3)
-5. -[@Sid200026](https://github.com/Sid200026)
-6. -[@Yash-Jain289](https://github.com/Yash-Jain289)
-
-**Mentor**
-
-1. Syed Ibrahim Peer Mohamed
