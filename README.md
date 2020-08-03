@@ -307,3 +307,18 @@ The above two steps will be **scheduled to run every 'n' hours** to update the d
 **Filtering on basis of security**
 
 ![Filtering through Security Page](./docs/Generic&#32;Company&#32;Search.jpeg)
+
+---
+
+![News](./docs/news.jpeg)
+![CA Non-CA Classifier](./docs/ca_non_ca_classifier.jpeg)
+![Classifier Accuracy](./docs/ca_non_ca_classifier_accuracy.jpeg)
+![2nd Pipeline Layer](./docs/NER_model_for_basic_feature_extraction.jpeg)
+![3rd Pipeline Lyaer](./docs/Advanced_feature_extraction.jpeg)
+![Structured Data](./docs/structured_data.jpeg)
+![1 Page](./docs/db_1.jpeg)
+![2 Page](./docs/db_2.jpeg)
+![3 Page](./docs/db_3.jpeg)
+![4 Page](./docs/db_4.jpeg)
+![5 Page](./docs/db_5.jpeg)
+
