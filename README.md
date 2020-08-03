@@ -196,10 +196,16 @@ foo@bar:~$ flutter run
 We provide an **intelligent crawler** which can extract information related to corporate actions from **every webpage**. The crawler is designed to be able to extract information **without requiring any knowledge of the DOM elements**. So even if a website decides to change its CSS classes, identifiers etc, our crawler will still be able to gather information from that website. We use Google's Custom Search API to gather the sites which have a higher search index and get a list of url's pertaining to a company's corporate action. We then feed these urls to our crawler which returns all the extracted information from this site.
 
 The extracted information may be in a structured format (Table, PDF, Word):
-![ DB Structured](./docs/db_1.jpeg)
+
+
+<img src="./docs/db_1.jpeg" height=300>
+
+
 
 The extracted imformation may be unstructured (News, Free form text):
-![ News](./docs/news.jpeg)
+
+
+<img src="./docs/news.jpeg" width=500>
 
 For the **structured data** we preprocess the data, assign it a key based on the name of the company and store it in the database.
 As for the **unstructured data**, information is passed through a **NLP model** to decide whether the given text is CA or Non-CA. The crawler will act as a pseudo pipeline-layer for the NLP model to remove any information that may not be a CA. After a text has been classified as CA, we'll  pass it through a **NER model** to extract information **(Organisation, Date, Ca Type, Purpose, Context, Source)**  from it and store it in the database.
@@ -310,27 +316,27 @@ The entire project is hosted on AWS. Currently we use the following AWS Services
 
 **Landing Page**
 
-![Landing Page](./docs/Landing&#32;Screen.jpeg)
+<img src="./docs/Landing&#32;Screen.jpeg" width=300>
 
 **Login Page**
 
-![Login Page](./docs/Login&#32;Screen.jpeg)
+<img src="./docs/Login&#32;Screen.jpeg" width=300>
 
 **Dashboard**
 
-![Dashboard Page](./docs/Dashboard.jpeg)
+<img src="./docs/Dashboard.jpeg" width=300>
 
 **Favourites**
 
-![Favourites Page](./docs/Favourites.jpeg)
+<img src="./docs/Favourites.jpeg" width=300>
 
 **Detail View of CA**
 
-![Detail View of CA Page](./docs/Detail&#32;View&#32;of&#32;CA.jpeg)
+<img src="./docs/Detail&#32;View&#32;of&#32;CA.jpeg" width=300>
 
 **Filtering on basis of security**
 
-![Filtering through Security Page](./docs/Generic&#32;Company&#32;Search.jpeg)
+<img src="./docs/Generic&#32;Company&#32;Search.jpeg" width=300>
 
 ---
 
